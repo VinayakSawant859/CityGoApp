@@ -7,6 +7,7 @@ sealed class Screen(){
 
     object SignUp: Screen()
     object TermsAndConditions: Screen()
+    object Login: Screen()
 }
 
 object CityGoAppNavigator{

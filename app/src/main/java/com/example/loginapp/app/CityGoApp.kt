@@ -6,6 +6,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.loginapp.Screens.Login
 import com.example.loginapp.Screens.SignUp
 import com.example.loginapp.Screens.TermsAndConditionsScreen
 import com.example.loginapp.navigation.CityGoAppNavigator
@@ -23,6 +24,8 @@ fun CityGoApp(){
                 is Screen.SignUp ->{ SignUp() }
 
                 is Screen.TermsAndConditions ->{ TermsAndConditionsScreen() }
+
+                is Screen.Login ->{ Login() }
             }
         }
     }

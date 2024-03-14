@@ -13,4 +13,7 @@
     <string name="terms_of_use">Terms And Conditions</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="Or">"Or"</string>
+    <string name="go_to_login">"Already have an Account? Login"</string>
+    <string name="forgot_password">Forgot your password?</string>
 </resources>

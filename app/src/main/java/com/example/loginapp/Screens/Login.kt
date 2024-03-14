@@ -14,20 +14,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.loginapp.Components.ButtonComponent
-import com.example.loginapp.Components.CheckBoxComponent
 import com.example.loginapp.Components.ClickableLoginTextComponent
 import com.example.loginapp.Components.DividerComponent
 import com.example.loginapp.Components.HeaderTextComponent
 import com.example.loginapp.Components.PasswordFieldComponent
 import com.example.loginapp.Components.SimpleTextComponent
 import com.example.loginapp.Components.TextFieldComponent
+import com.example.loginapp.Components.UnderlineTextComponent
 import com.example.loginapp.R
 import com.example.loginapp.navigation.CityGoAppNavigator
 import com.example.loginapp.navigation.Screen
+import com.example.loginapp.navigation.SystemBackButtonHandler
 
 @Composable
-fun SignUp() {
-
+fun Login() {
     Surface(
         color = Color.White,
         modifier = Modifier
@@ -36,44 +36,42 @@ fun SignUp() {
             .background(Color.White)
 
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            SimpleTextComponent(value = stringResource(id = R.string.Hello))
-            HeaderTextComponent(value = stringResource(id = R.string.create_account))
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
 
-            Spacer(modifier = Modifier.height(20.dp))
-            TextFieldComponent(
-                labelValue = stringResource(id = R.string.first_name),
-                painterResource(id = R.drawable.person_24px)
-            )
-            TextFieldComponent(
-                labelValue = stringResource(id = R.string.last_name),
-                painterResource = painterResource(id = R.drawable.person_24px)
-            )
+            SimpleTextComponent(value = stringResource(id = R.string.Hello))
+            HeaderTextComponent(value = stringResource(id = R.string.welcome_back))
+            Spacer(modifier = Modifier.height(30.dp))
+
             TextFieldComponent(
                 labelValue = stringResource(id = R.string.email),
                 painterResource = painterResource(id = R.drawable.mail_24px)
             )
+
             PasswordFieldComponent(
                 labelValue = stringResource(id = R.string.password),
                 painterResource = painterResource(id = R.drawable.lock_24px)
             )
 
-            CheckBoxComponent(value = stringResource(id = R.string.terms_and_conditions),
-                onTextSelected = {
-                    CityGoAppNavigator.navigateTo(Screen.TermsAndConditions)
-                })
+            Spacer(modifier = Modifier.height(15.dp))
+            UnderlineTextComponent(value = stringResource(id = R.string.forgot_password))
 
-            Spacer(modifier = Modifier.height(60.dp))
-            ButtonComponent(value = stringResource(id = R.string.register))
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(40.dp))
+            ButtonComponent(value = stringResource(id = R.string.login))
 
+            Spacer(modifier = Modifier.height(40.dp))
             DividerComponent()
 
-            Spacer(modifier = Modifier.height(90.dp))
-            ClickableLoginTextComponent(tryingToLogin = true, onTextSelected = {
-                CityGoAppNavigator.navigateTo(Screen.Login)
+            Spacer(modifier = Modifier.height(260.dp))
+            ClickableLoginTextComponent(tryingToLogin = false, onTextSelected = {
+                CityGoAppNavigator.navigateTo(Screen.SignUp)
             })
         }
+    }
 
+    SystemBackButtonHandler {
+        CityGoAppNavigator.navigateTo(Screen.SignUp)
     }
 }
